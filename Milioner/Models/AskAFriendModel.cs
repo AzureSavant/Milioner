@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Milioner.Models
 {
-    internal class AskAFriendModel
+    public class AskAFriendModel
     {
         public int AnswerIndex { get; set; }
         public int Confidence { get; set; }
