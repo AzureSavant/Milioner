@@ -51,7 +51,7 @@ namespace Milioner
 
         private void selectAnswer(int answer) {
             var question = quizService.GetQuestion(questionIndex);
-            if (answer == question.correct || true)
+            if (answer == question.correct)
             {
                 //lbScore.Items[questionIndex].
                 
