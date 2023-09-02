@@ -19,7 +19,7 @@ namespace Milioner
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            Form form1 = new Form1();
+            Form form1 = new GameScreen();
             form1.Location = this.Location;
             form1.StartPosition = FormStartPosition.Manual;
             form1.FormClosed += delegate { this.Show(); };

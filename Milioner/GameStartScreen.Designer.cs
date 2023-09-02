@@ -30,21 +30,21 @@ namespace Milioner
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameStartScreen));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.StartScreenBackground = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.Button();
             this.ExitGameButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StartScreenBackground)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // StartScreenBackground
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(810, 517);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.StartScreenBackground.Image = ((System.Drawing.Image)(resources.GetObject("StartScreenBackground.Image")));
+            this.StartScreenBackground.Location = new System.Drawing.Point(0, 0);
+            this.StartScreenBackground.Name = "StartScreenBackground";
+            this.StartScreenBackground.Size = new System.Drawing.Size(810, 517);
+            this.StartScreenBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.StartScreenBackground.TabIndex = 0;
+            this.StartScreenBackground.TabStop = false;
             // 
             // PlayButton
             // 
@@ -88,17 +88,17 @@ namespace Milioner
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ExitGameButton);
             this.Controls.Add(this.PlayButton);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.StartScreenBackground);
             this.Name = "GameStartScreen";
-            this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "Milioner";
+            ((System.ComponentModel.ISupportInitialize)(this.StartScreenBackground)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox StartScreenBackground;
         private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.Button ExitGameButton;
     }

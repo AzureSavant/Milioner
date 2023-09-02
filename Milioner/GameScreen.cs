@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace Milioner
 {
-    public partial class Form1 : Form
+    public partial class GameScreen : Form
     {
         QuizService quizService = new QuizService();
         int questionIndex = 0;
-        public Form1()
+        public GameScreen()
         {
             InitializeComponent();
             loadQuestion();

@@ -1,6 +1,6 @@
 ﻿namespace Milioner
 {
-    partial class Form1
+    partial class GameScreen
     {
         /// <summary>
         /// Required designer variable.
