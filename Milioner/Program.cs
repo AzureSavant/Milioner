@@ -20,7 +20,7 @@ namespace Milioner
             Console.Write("Started");
 
             var a = new QuizService();
-            Application.Run(new Form1());
+            Application.Run(new GameStartScreen());
         }
     }
 }
