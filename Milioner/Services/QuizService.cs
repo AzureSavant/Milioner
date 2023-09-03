@@ -39,6 +39,12 @@ namespace Milioner.Services
 
             if (totalPercentage > 100)
             {
+                int randomIndex;
+                do
+                {
+                    randomIndex = r.Next(0, 3);
+                }
+                while (audienceResults[randomIndex] <= totalPercentage - 100);
                 audienceResults[r.Next(0, 3)] -= totalPercentage - 100;
             }
             else if (totalPercentage < 100)
