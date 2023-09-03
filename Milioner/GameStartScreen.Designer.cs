@@ -33,8 +33,9 @@ namespace Milioner
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameStartScreen));
             this.StartScreenBackground = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.Button();
-            this.ExitGameButton = new System.Windows.Forms.Button();
+            this.btnLoadGame = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StartScreenBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@ namespace Milioner
             this.PlayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PlayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.PlayButton.Location = new System.Drawing.Point(171, 366);
+            this.PlayButton.Location = new System.Drawing.Point(168, 348);
             this.PlayButton.Margin = new System.Windows.Forms.Padding(4);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(739, 48);
@@ -69,29 +70,49 @@ namespace Milioner
             this.PlayButton.UseVisualStyleBackColor = false;
             this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
-            // ExitGameButton
+            // btnLoadGame
             // 
-            this.ExitGameButton.BackColor = System.Drawing.Color.Navy;
-            this.ExitGameButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.ExitGameButton.FlatAppearance.BorderSize = 2;
-            this.ExitGameButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.ExitGameButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.ExitGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitGameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitGameButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.ExitGameButton.Location = new System.Drawing.Point(171, 421);
-            this.ExitGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
-            this.ExitGameButton.Name = "ExitGameButton";
-            this.ExitGameButton.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
-            this.ExitGameButton.Size = new System.Drawing.Size(739, 54);
-            this.ExitGameButton.TabIndex = 2;
-            this.ExitGameButton.Text = "EXIT";
-            this.ExitGameButton.UseVisualStyleBackColor = false;
-            this.ExitGameButton.Click += new System.EventHandler(this.ExitGameButton_Click);
+            this.btnLoadGame.BackColor = System.Drawing.Color.Navy;
+            this.btnLoadGame.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadGame.FlatAppearance.BorderSize = 2;
+            this.btnLoadGame.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnLoadGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnLoadGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadGame.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLoadGame.Location = new System.Drawing.Point(168, 404);
+            this.btnLoadGame.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
+            this.btnLoadGame.Name = "btnLoadGame";
+            this.btnLoadGame.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
+            this.btnLoadGame.Size = new System.Drawing.Size(739, 54);
+            this.btnLoadGame.TabIndex = 2;
+            this.btnLoadGame.Text = "LOAD GAME";
+            this.btnLoadGame.UseVisualStyleBackColor = false;
+            this.btnLoadGame.Click += new System.EventHandler(this.btnLoadGame_Click);
             // 
             // bindingSource1
             // 
             this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Navy;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(168, 466);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
+            this.button1.Size = new System.Drawing.Size(739, 54);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "EXIT";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // GameStartScreen
             // 
@@ -99,7 +120,8 @@ namespace Milioner
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.ExitGameButton);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLoadGame);
             this.Controls.Add(this.PlayButton);
             this.Controls.Add(this.StartScreenBackground);
             this.KeyPreview = true;
@@ -118,7 +140,8 @@ namespace Milioner
 
         private System.Windows.Forms.PictureBox StartScreenBackground;
         private System.Windows.Forms.Button PlayButton;
-        private System.Windows.Forms.Button ExitGameButton;
+        private System.Windows.Forms.Button btnLoadGame;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Button button1;
     }
 }

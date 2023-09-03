@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Milioner.Models;
+using Milioner.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -54,6 +56,22 @@ namespace Milioner
                 keyBuffer = new List<Keys>();
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnLoadGame_Click(object sender, EventArgs e)
+        {
+            var gameState = Helper.LoadGameStateFromFile();
+            Form form1 = new GameScreen(wplayer, gameState);
+            form1.Location = this.Location;
+            form1.StartPosition = FormStartPosition.Manual;
+            form1.FormClosed += delegate { this.Show(); };
+            form1.Show();
+            this.Hide();
         }
     }
 }

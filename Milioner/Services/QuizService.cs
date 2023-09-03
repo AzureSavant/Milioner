@@ -90,6 +90,21 @@ namespace Milioner.Services
 
         }
 
+        public void SetQuestionSet(int questionSet)
+        {
+            QuestionSet = questionSet;
+            UpdateQuestionSet();
+        }
+        public void UpdateQuestionSet()
+        {
+            using (StreamReader r = new StreamReader("../../questions.json"))
+            {
+                string json = r.ReadToEnd();
+                var games = JsonConvert.DeserializeObject<Root>(json).games;
+                Questions = games[QuestionSet].questions;
+            }
+        }
+
         public Question GetQuestion(int index)
         {
             return Questions.ElementAt(index);
