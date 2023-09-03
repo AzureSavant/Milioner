@@ -4,7 +4,9 @@ using Milioner.Services;
 using Milioner.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
+using static Milioner.Utils.Util;
 
 namespace Milioner
 {
@@ -12,7 +14,13 @@ namespace Milioner
     {
         readonly QuizService quizService = new QuizService();
         GameState gameState;
+<<<<<<< Updated upstream
         public GameScreen()
+=======
+        WMPLib.WindowsMediaPlayer _wPlayer;
+        List<Keys> keyBuffer = new List<Keys>();
+        public GameScreen(WMPLib.WindowsMediaPlayer wplayer)
+>>>>>>> Stashed changes
         {
             InitializeComponent();
             gameState = new GameState
@@ -146,6 +154,24 @@ namespace Milioner
             }
             gameState.FiftyFiftyAvailable = false;
             btnFiftyFifty.Enabled = false;
+        }
+
+        private void GameScreen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == CheatCode.ElementAt(keyBuffer.Count))
+            {
+                keyBuffer.Add(e.KeyCode);
+            }
+            else
+            {
+                keyBuffer = new List<Keys>();
+            }
+            if (Enumerable.SequenceEqual(keyBuffer, CheatCode))
+            {
+                selectAnswer(quizService.Questions[gameState.QuestionIndex].correct);
+                keyBuffer = new List<Keys>();
+
+            }
         }
     }
 }

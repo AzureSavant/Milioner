@@ -32,5 +32,30 @@ namespace Milioner
             Application.Exit();
         }
 
+<<<<<<< Updated upstream
+=======
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GameStartScreen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == WASDKonamiCode.ElementAt(keyBuffer.Count))
+            {
+                keyBuffer.Add(e.KeyCode);
+            }
+            else
+            {
+                keyBuffer = new List<Keys>();
+            }
+            if(Enumerable.SequenceEqual(keyBuffer, WASDKonamiCode))
+            {
+                PlayAudioFile(wplayer, AudioFile.StartScreenVariant);
+                keyBuffer = new List<Keys>();
+
+            }
+        }
+>>>>>>> Stashed changes
     }
 }
