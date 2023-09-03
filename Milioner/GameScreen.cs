@@ -1,5 +1,7 @@
-﻿using Milioner.Models.ListBoxItems;
+﻿using Milioner.Models;
+using Milioner.Models.ListBoxItems;
 using Milioner.Services;
+using Milioner.Utils;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,63 +10,71 @@ namespace Milioner
 {
     public partial class GameScreen : Form
     {
-        QuizService quizService = new QuizService();
-        int questionIndex = 0;
+        readonly QuizService quizService = new QuizService();
+        GameState gameState;
         public GameScreen()
         {
             InitializeComponent();
+            gameState = new GameState
+            {
+                AskAFriendAvailable = true,
+                FiftyFiftyAvailable = true,
+                AskTheAudienceAvailable = true,
+                QuestionIndex = 0,
+                GameId = quizService.QuestionSet
+            };
             loadQuestion();
             for(var a = 14; a >= 0; a--)
             {
-                if(a >= 10)
+                if (a >= 10)
+                    addEntry(a, 100);
+                if(a < 10 && a > 5)
+                    addEntry(a, 500);
+                if (a <= 5)
+                    addEntry(a, 1000);
+            }
+
+            void addEntry(int index, int multiplier)
+            {
                 lbScore.Items.Add(new ScoreEntry
                 {
-                    Number = a + 1,
-                    Price = (a + 1) * 1000
+                    Number = index + 1,
+                    Price = (index + 1) * multiplier
                 });
-                if(a < 10 && a > 5)
-                    lbScore.Items.Add(new ScoreEntry
-                    {
-                        Number = a + 1,
-                        Price = (a + 1) * 500
-                    });
-                if (a <= 5)
-                {
-                    lbScore.Items.Add(new ScoreEntry
-                    {
-                        Number = a + 1,
-                        Price = (a + 1) * 100
-                    });
-                }
             }
-            lbScore.SelectedIndex = 14-questionIndex;
+
+            lbScore.SelectedIndex = 14-gameState.QuestionIndex;
         }
 
         private void loadQuestion()
         {
-            tbQuestion.Text = quizService.GetQuestion(questionIndex).question;
-            btnAnswerA.Text = quizService.GetQuestion(questionIndex).content[0];
-            btnAnswerB.Text = quizService.GetQuestion(questionIndex).content[1];
-            btnAnswerC.Text = quizService.GetQuestion(questionIndex).content[2];
-            btnAnswerD.Text = quizService.GetQuestion(questionIndex).content[3];
+            tbQuestion.Text = quizService.GetQuestion(gameState.QuestionIndex).question;
+            btnAnswerA.Text = quizService.GetQuestion(gameState.QuestionIndex).content[0];
+            btnAnswerB.Text = quizService.GetQuestion(gameState.QuestionIndex).content[1];
+            btnAnswerC.Text = quizService.GetQuestion(gameState.QuestionIndex).content[2];
+            btnAnswerD.Text = quizService.GetQuestion(gameState.QuestionIndex).content[3];
+            btnAnswerA.Enabled = true;
+            btnAnswerB.Enabled = true;
+            btnAnswerC.Enabled = true;
+            btnAnswerD.Enabled = true;
         }
 
         private void selectAnswer(int answer) {
-            var question = quizService.GetQuestion(questionIndex);
+            var question = quizService.GetQuestion(gameState.QuestionIndex);
             if (answer == question.correct)
             {
                 //lbScore.Items[questionIndex].
                 
-                if(questionIndex == 14)
+                if(gameState.QuestionIndex == 14)
                 {
                     MessageBox.Show($"You won. You are now a millionaire.");
                     Close();
                 }
                 else
                 {
-                lbScore.SetItemChecked(13 - questionIndex + 1, true);
-                lbScore.SelectedItems.Add(lbScore.Items[13 - questionIndex]);
-                questionIndex++;
+                lbScore.SetItemChecked(13 - gameState.QuestionIndex + 1, true);
+                lbScore.SelectedItems.Add(lbScore.Items[13 - gameState.QuestionIndex]);
+                gameState.QuestionIndex++;
                 loadQuestion();
                 }
             }
@@ -100,6 +110,42 @@ namespace Milioner
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AskAudienceButton_Click(object sender, EventArgs e)
+        {
+            quizService.AskAudience(gameState.QuestionIndex);
+        }
+
+        private void AskAFriendButton_Click(object sender, EventArgs e)
+        {
+            var answer = quizService.CallAFriend(gameState.QuestionIndex);
+            MessageBox.Show($"I believe the correct answer is {Util.GetAnswerLetter(answer.AnswerIndex)}, {quizService.GetQuestion(gameState.QuestionIndex).content[answer.AnswerIndex]}, I am {answer.Confidence}% sure");
+            btnAskAFriend.Enabled = false;
+            gameState.AskAFriendAvailable = false;
+        }
+
+        private void FiftyFiftyButton_Click(object sender, EventArgs e)
+        {
+            var answer = quizService.FiftyFifty(gameState.QuestionIndex);
+            if (!answer.Contains(0)){
+                btnAnswerA.Text = "";
+                btnAnswerA.Enabled = false;
+            }
+            if (!answer.Contains(1)){
+                btnAnswerB.Text = "";
+                btnAnswerB.Enabled = false;
+            }
+            if (!answer.Contains(2)){
+                btnAnswerC.Text = "";
+                btnAnswerC.Enabled = false;
+            }
+            if (!answer.Contains(3)){
+                btnAnswerD.Text = "";
+                btnAnswerD.Enabled = false;
+            }
+            gameState.FiftyFiftyAvailable = false;
+            btnFiftyFifty.Enabled = false;
         }
     }
 }
