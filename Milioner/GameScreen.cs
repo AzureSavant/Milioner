@@ -14,14 +14,17 @@ namespace Milioner
     {
         readonly QuizService quizService = new QuizService();
         GameState gameState;
-<<<<<<< Updated upstream
-        public GameScreen()
-=======
+        
         WMPLib.WindowsMediaPlayer _wPlayer;
+
         List<Keys> keyBuffer = new List<Keys>();
+
         public GameScreen(WMPLib.WindowsMediaPlayer wplayer)
->>>>>>> Stashed changes
         {
+            WMPLib.WindowsMediaPlayer _wPlayer;
+            List<Keys> keyBuffer = new List<Keys>();
+            this._wPlayer = wplayer;
+            Util.PlayAudioFile(this._wPlayer, Util.AudioFile.LetsPlay);
             InitializeComponent();
             gameState = new GameState
             {
@@ -32,11 +35,11 @@ namespace Milioner
                 GameId = quizService.QuestionSet
             };
             loadQuestion();
-            for(var a = 14; a >= 0; a--)
+            for (var a = 14; a >= 0; a--)
             {
                 if (a >= 10)
                     addEntry(a, 100);
-                if(a < 10 && a > 5)
+                if (a < 10 && a > 5)
                     addEntry(a, 500);
                 if (a <= 5)
                     addEntry(a, 1000);
@@ -51,7 +54,7 @@ namespace Milioner
                 });
             }
 
-            lbScore.SelectedIndex = 14-gameState.QuestionIndex;
+            lbScore.SelectedIndex = 14 - gameState.QuestionIndex;
         }
 
         private void loadQuestion()
@@ -67,27 +70,30 @@ namespace Milioner
             btnAnswerD.Enabled = true;
         }
 
-        private void selectAnswer(int answer) {
+        private void selectAnswer(int answer)
+        {
             var question = quizService.GetQuestion(gameState.QuestionIndex);
             if (answer == question.correct)
             {
                 //lbScore.Items[questionIndex].
-                
-                if(gameState.QuestionIndex == 14)
+
+                if (gameState.QuestionIndex == 14)
                 {
                     MessageBox.Show($"You won. You are now a millionaire.");
                     Close();
                 }
                 else
                 {
-                lbScore.SetItemChecked(13 - gameState.QuestionIndex + 1, true);
-                lbScore.SelectedItems.Add(lbScore.Items[13 - gameState.QuestionIndex]);
-                gameState.QuestionIndex++;
-                loadQuestion();
+                    PlayAudioFile(_wPlayer, AudioFile.CorrectAnswer);
+                    lbScore.SetItemChecked(13 - gameState.QuestionIndex + 1, true);
+                    lbScore.SelectedItems.Add(lbScore.Items[13 - gameState.QuestionIndex]);
+                    gameState.QuestionIndex++;
+                    loadQuestion();
                 }
             }
             else
             {
+                PlayAudioFile(_wPlayer, AudioFile.WrongAnswer);
                 MessageBox.Show($"You lost. The correct answer was {question.content[question.correct]}");
                 Close();
             }
@@ -127,28 +133,34 @@ namespace Milioner
 
         private void AskAFriendButton_Click(object sender, EventArgs e)
         {
+            PlayAudioFile(_wPlayer, AudioFile.PhoneAFriend);
             var answer = quizService.CallAFriend(gameState.QuestionIndex);
-            MessageBox.Show($"I believe the correct answer is {Util.GetAnswerLetter(answer.AnswerIndex)}, {quizService.GetQuestion(gameState.QuestionIndex).content[answer.AnswerIndex]}, I am {answer.Confidence}% sure");
+            MessageBox.Show($"I believe the correct answer is {GetAnswerLetter(answer.AnswerIndex)}, {quizService.GetQuestion(gameState.QuestionIndex).content[answer.AnswerIndex]}, I am {answer.Confidence}% sure");
             btnAskAFriend.Enabled = false;
             gameState.AskAFriendAvailable = false;
+            _wPlayer.controls.stop();
         }
 
         private void FiftyFiftyButton_Click(object sender, EventArgs e)
         {
             var answer = quizService.FiftyFifty(gameState.QuestionIndex);
-            if (!answer.Contains(0)){
+            if (!answer.Contains(0))
+            {
                 btnAnswerA.Text = "";
                 btnAnswerA.Enabled = false;
             }
-            if (!answer.Contains(1)){
+            if (!answer.Contains(1))
+            {
                 btnAnswerB.Text = "";
                 btnAnswerB.Enabled = false;
             }
-            if (!answer.Contains(2)){
+            if (!answer.Contains(2))
+            {
                 btnAnswerC.Text = "";
                 btnAnswerC.Enabled = false;
             }
-            if (!answer.Contains(3)){
+            if (!answer.Contains(3))
+            {
                 btnAnswerD.Text = "";
                 btnAnswerD.Enabled = false;
             }

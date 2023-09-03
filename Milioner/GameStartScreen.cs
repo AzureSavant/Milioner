@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Milioner.Utils.Util;
 
 namespace Milioner
 {
     public partial class GameStartScreen : Form
     {
+        WMPLib.WindowsMediaPlayer wplayer;
+        List<Keys> keyBuffer = new List<Keys>();
         public GameStartScreen()
         {
+            wplayer = new WMPLib.WindowsMediaPlayer();
+            PlayAudioFile(wplayer, AudioFile.StartScreen);
+            wplayer.controls.play();
             InitializeComponent();
         }
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            Form form1 = new GameScreen();
+            Form form1 = new GameScreen(wplayer);
             form1.Location = this.Location;
             form1.StartPosition = FormStartPosition.Manual;
             form1.FormClosed += delegate { this.Show(); };
@@ -32,8 +33,6 @@ namespace Milioner
             Application.Exit();
         }
 
-<<<<<<< Updated upstream
-=======
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
 
@@ -56,6 +55,5 @@ namespace Milioner
 
             }
         }
->>>>>>> Stashed changes
     }
 }
