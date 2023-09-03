@@ -13,11 +13,13 @@ namespace Milioner
     public partial class GameScreen : Form
     {
         readonly QuizService quizService = new QuizService();
-        GameState gameState;
+        private GameState gameState;
         
         WMPLib.WindowsMediaPlayer _wPlayer;
 
         List<Keys> keyBuffer = new List<Keys>();
+
+        Helper helper = new Helper();
 
         public GameScreen(WMPLib.WindowsMediaPlayer wplayer)
         {
@@ -35,6 +37,41 @@ namespace Milioner
                 GameId = quizService.QuestionSet
             };
             loadQuestion();
+            ReloadUi();
+        }
+        public GameScreen(WMPLib.WindowsMediaPlayer wplayer, GameState gameState_)
+        {
+            WMPLib.WindowsMediaPlayer _wPlayer;
+            List<Keys> keyBuffer = new List<Keys>();
+            this._wPlayer = wplayer;
+            Util.PlayAudioFile(this._wPlayer, Util.AudioFile.LetsPlay);
+            InitializeComponent();
+            gameState = new GameState
+            {
+                AskAFriendAvailable = gameState_.AskAFriendAvailable,
+                FiftyFiftyAvailable = gameState_.FiftyFiftyAvailable,
+                AskTheAudienceAvailable = gameState_.AskTheAudienceAvailable,
+                QuestionIndex = gameState_.QuestionIndex,
+                GameId = gameState_.GameId
+            };
+            quizService.SetQuestionSet(gameState.GameId);
+            loadQuestion();
+            ReloadUi();
+        }
+        private void loadQuestion()
+        {
+            tbQuestion.Text = quizService.GetQuestion(gameState.QuestionIndex).question;
+            btnAnswerA.Text = quizService.GetQuestion(gameState.QuestionIndex).content[0];
+            btnAnswerB.Text = quizService.GetQuestion(gameState.QuestionIndex).content[1];
+            btnAnswerC.Text = quizService.GetQuestion(gameState.QuestionIndex).content[2];
+            btnAnswerD.Text = quizService.GetQuestion(gameState.QuestionIndex).content[3];
+            btnAnswerA.Enabled = true;
+            btnAnswerB.Enabled = true;
+            btnAnswerC.Enabled = true;
+            btnAnswerD.Enabled = true;
+        }
+        private void ReloadUi()
+        {
             for (var a = 14; a >= 0; a--)
             {
                 if (a >= 10)
@@ -53,21 +90,16 @@ namespace Milioner
                     Price = (index + 1) * multiplier
                 });
             }
+            for (var a = 0; a >= gameState.QuestionIndex; a++)
+            {
+                lbScore.SetItemChecked(13 - gameState.QuestionIndex, true);
+            }
 
             lbScore.SelectedIndex = 14 - gameState.QuestionIndex;
-        }
 
-        private void loadQuestion()
-        {
-            tbQuestion.Text = quizService.GetQuestion(gameState.QuestionIndex).question;
-            btnAnswerA.Text = quizService.GetQuestion(gameState.QuestionIndex).content[0];
-            btnAnswerB.Text = quizService.GetQuestion(gameState.QuestionIndex).content[1];
-            btnAnswerC.Text = quizService.GetQuestion(gameState.QuestionIndex).content[2];
-            btnAnswerD.Text = quizService.GetQuestion(gameState.QuestionIndex).content[3];
-            btnAnswerA.Enabled = true;
-            btnAnswerB.Enabled = true;
-            btnAnswerC.Enabled = true;
-            btnAnswerD.Enabled = true;
+            btnFiftyFifty.Enabled = gameState.FiftyFiftyAvailable;
+            btnAskAFriend.Enabled = gameState.AskAFriendAvailable;
+            btnAskAudience.Enabled = gameState.AskTheAudienceAvailable;
         }
 
         private void selectAnswer(int answer)
@@ -123,6 +155,7 @@ namespace Milioner
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            helper.SaveGameStateToFile(gameState);
             this.Close();
         }
 

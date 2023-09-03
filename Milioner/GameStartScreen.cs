@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Milioner.Models;
+using Milioner.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,17 +12,20 @@ namespace Milioner
     {
         WMPLib.WindowsMediaPlayer wplayer;
         List<Keys> keyBuffer = new List<Keys>();
+        Helper helper;
         public GameStartScreen()
         {
             wplayer = new WMPLib.WindowsMediaPlayer();
             PlayAudioFile(wplayer, AudioFile.StartScreen);
             wplayer.controls.play();
+            helper = new Helper();
             InitializeComponent();
         }
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            Form form1 = new GameScreen(wplayer);
+            GameState gameState = helper.LoadGameStateFromFile();
+            Form form1 = new GameScreen(wplayer, gameState);
             form1.Location = this.Location;
             form1.StartPosition = FormStartPosition.Manual;
             form1.FormClosed += delegate { this.Show(); };
