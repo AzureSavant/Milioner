@@ -19,42 +19,22 @@ namespace Milioner
 
         List<Keys> keyBuffer = new List<Keys>();
 
-        Helper helper = new Helper();
 
-        public GameScreen(WMPLib.WindowsMediaPlayer wplayer)
+        public GameScreen(WMPLib.WindowsMediaPlayer wplayer, GameState initialState = null)
         {
             WMPLib.WindowsMediaPlayer _wPlayer;
             List<Keys> keyBuffer = new List<Keys>();
             this._wPlayer = wplayer;
-            Util.PlayAudioFile(this._wPlayer, Util.AudioFile.LetsPlay);
+            Util.PlayAudioFile(this._wPlayer, AudioFile.LetsPlay);
             InitializeComponent();
-            gameState = new GameState
+            gameState = initialState ?? new GameState
             {
                 AskAFriendAvailable = true,
                 FiftyFiftyAvailable = true,
                 AskTheAudienceAvailable = true,
                 QuestionIndex = 0,
-                GameId = quizService.QuestionSet
             };
-            loadQuestion();
-            ReloadUi();
-        }
-        public GameScreen(WMPLib.WindowsMediaPlayer wplayer, GameState gameState_)
-        {
-            WMPLib.WindowsMediaPlayer _wPlayer;
-            List<Keys> keyBuffer = new List<Keys>();
-            this._wPlayer = wplayer;
-            Util.PlayAudioFile(this._wPlayer, Util.AudioFile.LetsPlay);
-            InitializeComponent();
-            gameState = new GameState
-            {
-                AskAFriendAvailable = gameState_.AskAFriendAvailable,
-                FiftyFiftyAvailable = gameState_.FiftyFiftyAvailable,
-                AskTheAudienceAvailable = gameState_.AskTheAudienceAvailable,
-                QuestionIndex = gameState_.QuestionIndex,
-                GameId = gameState_.GameId
-            };
-            quizService.SetQuestionSet(gameState.GameId);
+            if(initialState != null) quizService.SetQuestionSet(gameState.GameId);
             loadQuestion();
             ReloadUi();
         }
@@ -72,6 +52,7 @@ namespace Milioner
         }
         private void ReloadUi()
         {
+            //Add list entries
             for (var a = 14; a >= 0; a--)
             {
                 if (a >= 10)
@@ -82,6 +63,20 @@ namespace Milioner
                     addEntry(a, 1000);
             }
 
+
+            //Check the already answered questions
+            for (var a = 14; a != 14 - gameState.QuestionIndex; a--)
+            {
+                lbScore.SetItemChecked(a, true);
+            }
+
+            //Select current question
+            lbScore.SelectedIndex = 14 - gameState.QuestionIndex;
+
+            btnFiftyFifty.Enabled = gameState.FiftyFiftyAvailable;
+            btnAskAFriend.Enabled = gameState.AskAFriendAvailable;
+            btnAskAudience.Enabled = gameState.AskTheAudienceAvailable;
+
             void addEntry(int index, int multiplier)
             {
                 lbScore.Items.Add(new ScoreEntry
@@ -90,16 +85,6 @@ namespace Milioner
                     Price = (index + 1) * multiplier
                 });
             }
-            for (var a = 0; a >= gameState.QuestionIndex; a++)
-            {
-                lbScore.SetItemChecked(13 - gameState.QuestionIndex, true);
-            }
-
-            lbScore.SelectedIndex = 14 - gameState.QuestionIndex;
-
-            btnFiftyFifty.Enabled = gameState.FiftyFiftyAvailable;
-            btnAskAFriend.Enabled = gameState.AskAFriendAvailable;
-            btnAskAudience.Enabled = gameState.AskTheAudienceAvailable;
         }
 
         private void selectAnswer(int answer)
@@ -155,7 +140,7 @@ namespace Milioner
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            helper.SaveGameStateToFile(gameState);
+            Helper.SaveGameStateToFile(gameState);
             this.Close();
         }
 

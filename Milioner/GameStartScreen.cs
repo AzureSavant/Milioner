@@ -12,20 +12,17 @@ namespace Milioner
     {
         WMPLib.WindowsMediaPlayer wplayer;
         List<Keys> keyBuffer = new List<Keys>();
-        Helper helper;
         public GameStartScreen()
         {
             wplayer = new WMPLib.WindowsMediaPlayer();
             PlayAudioFile(wplayer, AudioFile.StartScreen);
             wplayer.controls.play();
-            helper = new Helper();
             InitializeComponent();
         }
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            GameState gameState = helper.LoadGameStateFromFile();
-            Form form1 = new GameScreen(wplayer, gameState);
+            Form form1 = new GameScreen(wplayer);
             form1.Location = this.Location;
             form1.StartPosition = FormStartPosition.Manual;
             form1.FormClosed += delegate { this.Show(); };
@@ -59,6 +56,22 @@ namespace Milioner
                 keyBuffer = new List<Keys>();
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnLoadGame_Click(object sender, EventArgs e)
+        {
+            var gameState = Helper.LoadGameStateFromFile();
+            Form form1 = new GameScreen(wplayer, gameState);
+            form1.Location = this.Location;
+            form1.StartPosition = FormStartPosition.Manual;
+            form1.FormClosed += delegate { this.Show(); };
+            form1.Show();
+            this.Hide();
         }
     }
 }
