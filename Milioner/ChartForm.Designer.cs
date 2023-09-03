@@ -73,7 +73,11 @@ namespace Milioner
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(241, 29);
+            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(110)))));
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.ForeColor = System.Drawing.Color.White;
+            this.richTextBox1.Location = new System.Drawing.Point(228, 29);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(18, 23);
@@ -82,7 +86,11 @@ namespace Milioner
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(241, 72);
+            this.richTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(110)))));
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox2.ForeColor = System.Drawing.Color.White;
+            this.richTextBox2.Location = new System.Drawing.Point(228, 72);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
             this.richTextBox2.Size = new System.Drawing.Size(18, 22);
@@ -91,7 +99,11 @@ namespace Milioner
             // 
             // richTextBox3
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(241, 113);
+            this.richTextBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(110)))));
+            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox3.ForeColor = System.Drawing.Color.White;
+            this.richTextBox3.Location = new System.Drawing.Point(228, 113);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.ReadOnly = true;
             this.richTextBox3.Size = new System.Drawing.Size(18, 22);
@@ -100,7 +112,11 @@ namespace Milioner
             // 
             // richTextBox4
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(241, 157);
+            this.richTextBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(110)))));
+            this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox4.ForeColor = System.Drawing.Color.White;
+            this.richTextBox4.Location = new System.Drawing.Point(228, 156);
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.ReadOnly = true;
             this.richTextBox4.Size = new System.Drawing.Size(18, 23);
@@ -109,6 +125,10 @@ namespace Milioner
             // 
             // richTextBoxPercentA
             // 
+            this.richTextBoxPercentA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(110)))));
+            this.richTextBoxPercentA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxPercentA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxPercentA.ForeColor = System.Drawing.Color.White;
             this.richTextBoxPercentA.Location = new System.Drawing.Point(174, 29);
             this.richTextBoxPercentA.Name = "richTextBoxPercentA";
             this.richTextBoxPercentA.ReadOnly = true;
@@ -118,6 +138,10 @@ namespace Milioner
             // 
             // richTextBoxPercentB
             // 
+            this.richTextBoxPercentB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(110)))));
+            this.richTextBoxPercentB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxPercentB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxPercentB.ForeColor = System.Drawing.Color.White;
             this.richTextBoxPercentB.Location = new System.Drawing.Point(174, 71);
             this.richTextBoxPercentB.Name = "richTextBoxPercentB";
             this.richTextBoxPercentB.ReadOnly = true;
@@ -127,6 +151,10 @@ namespace Milioner
             // 
             // richTextBoxPercentC
             // 
+            this.richTextBoxPercentC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(110)))));
+            this.richTextBoxPercentC.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxPercentC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxPercentC.ForeColor = System.Drawing.Color.White;
             this.richTextBoxPercentC.Location = new System.Drawing.Point(174, 114);
             this.richTextBoxPercentC.Name = "richTextBoxPercentC";
             this.richTextBoxPercentC.ReadOnly = true;
@@ -136,6 +164,10 @@ namespace Milioner
             // 
             // richTextBoxPercentD
             // 
+            this.richTextBoxPercentD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(110)))));
+            this.richTextBoxPercentD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxPercentD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxPercentD.ForeColor = System.Drawing.Color.White;
             this.richTextBoxPercentD.Location = new System.Drawing.Point(174, 157);
             this.richTextBoxPercentD.Name = "richTextBoxPercentD";
             this.richTextBoxPercentD.ReadOnly = true;
@@ -147,6 +179,7 @@ namespace Milioner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(110)))));
             this.ClientSize = new System.Drawing.Size(311, 222);
             this.Controls.Add(this.richTextBoxPercentD);
             this.Controls.Add(this.richTextBoxPercentC);
