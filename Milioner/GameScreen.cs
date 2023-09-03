@@ -4,7 +4,9 @@ using Milioner.Services;
 using Milioner.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
+using static Milioner.Utils.Util;
 
 namespace Milioner
 {
@@ -12,11 +14,17 @@ namespace Milioner
     {
         readonly QuizService quizService = new QuizService();
         GameState gameState;
+        
         WMPLib.WindowsMediaPlayer _wPlayer;
+
+        List<Keys> keyBuffer = new List<Keys>();
+
         public GameScreen(WMPLib.WindowsMediaPlayer wplayer)
         {
+            WMPLib.WindowsMediaPlayer _wPlayer;
+            List<Keys> keyBuffer = new List<Keys>();
             this._wPlayer = wplayer;
-            Util.PlayAudioFile(_wPlayer, Util.AudioFile.LetsPlay);
+            Util.PlayAudioFile(this._wPlayer, Util.AudioFile.LetsPlay);
             InitializeComponent();
             gameState = new GameState
             {
@@ -76,7 +84,7 @@ namespace Milioner
                 }
                 else
                 {
-                    Util.PlayAudioFile(_wPlayer, Util.AudioFile.CorrectAnswer);
+                    PlayAudioFile(_wPlayer, AudioFile.CorrectAnswer);
                     lbScore.SetItemChecked(13 - gameState.QuestionIndex + 1, true);
                     lbScore.SelectedItems.Add(lbScore.Items[13 - gameState.QuestionIndex]);
                     gameState.QuestionIndex++;
@@ -85,7 +93,7 @@ namespace Milioner
             }
             else
             {
-                Util.PlayAudioFile(_wPlayer, Util.AudioFile.WrongAnswer);
+                PlayAudioFile(_wPlayer, AudioFile.WrongAnswer);
                 MessageBox.Show($"You lost. The correct answer was {question.content[question.correct]}");
                 Close();
             }
@@ -125,9 +133,9 @@ namespace Milioner
 
         private void AskAFriendButton_Click(object sender, EventArgs e)
         {
-            Util.PlayAudioFile(_wPlayer, Util.AudioFile.PhoneAFriend);
+            PlayAudioFile(_wPlayer, AudioFile.PhoneAFriend);
             var answer = quizService.CallAFriend(gameState.QuestionIndex);
-            MessageBox.Show($"I believe the correct answer is {Util.GetAnswerLetter(answer.AnswerIndex)}, {quizService.GetQuestion(gameState.QuestionIndex).content[answer.AnswerIndex]}, I am {answer.Confidence}% sure");
+            MessageBox.Show($"I believe the correct answer is {GetAnswerLetter(answer.AnswerIndex)}, {quizService.GetQuestion(gameState.QuestionIndex).content[answer.AnswerIndex]}, I am {answer.Confidence}% sure");
             btnAskAFriend.Enabled = false;
             gameState.AskAFriendAvailable = false;
             _wPlayer.controls.stop();
@@ -158,6 +166,24 @@ namespace Milioner
             }
             gameState.FiftyFiftyAvailable = false;
             btnFiftyFifty.Enabled = false;
+        }
+
+        private void GameScreen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == CheatCode.ElementAt(keyBuffer.Count))
+            {
+                keyBuffer.Add(e.KeyCode);
+            }
+            else
+            {
+                keyBuffer = new List<Keys>();
+            }
+            if (Enumerable.SequenceEqual(keyBuffer, CheatCode))
+            {
+                selectAnswer(quizService.Questions[gameState.QuestionIndex].correct);
+                keyBuffer = new List<Keys>();
+
+            }
         }
     }
 }

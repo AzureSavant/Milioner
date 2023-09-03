@@ -10,7 +10,9 @@ namespace Milioner.Utils
 {
     internal static class Util
     {
-        public static List<Keys> KonamiCode = new List<Keys> { Keys.W, Keys.W, Keys.S, Keys.S, Keys.A, Keys.D, Keys.A, Keys.D, Keys.B, Keys.A };
+        public static List<Keys> WASDKonamiCode = new List<Keys> { Keys.W, Keys.W, Keys.S, Keys.S, Keys.A, Keys.D, Keys.A, Keys.D, Keys.B, Keys.A };
+        public static List<Keys> CheatCode = new List<Keys> { Keys.T, Keys.R, Keys.E, Keys.N, Keys.D, Keys.O, Keys.M, Keys.E, Keys.P, Keys.R, Keys.A, Keys.T, Keys.I };
+
         static public char GetAnswerLetter(int index)
         {
             switch (index)
