@@ -9,7 +9,8 @@ namespace Milioner.Services
 {
     internal class QuizService : IQuizService
     {
-        List<Question> questions;
+        public List<Question> Questions;
+        public int QuestionSet = 0;
 
         public QuizService()
         {
@@ -18,23 +19,40 @@ namespace Milioner.Services
                 var random = new Random();
                 string json = r.ReadToEnd();
                 var games = JsonConvert.DeserializeObject<Root>(json).games;
-                questions = games[random.Next(games.Count)].questions;
+                QuestionSet = random.Next(games.Count);
+                Questions = games[QuestionSet].questions;
             }
 
         }
 
         public List<int> AskAudience(int questionIndex)
         {
-            //TODO: Figure out how to generate the percentages so they 
-            // the real life answers (they are not always correct)
-            throw new NotImplementedException();
+            int correctAnswerIndex = Questions[questionIndex].correct;
+            Random r = new Random();
+            List<int> audienceResults = new List<int>();
+            for (int i = 0; i < 4; i++)
+            {
+                audienceResults.Add(i == correctAnswerIndex ? r.Next(30, 60) : r.Next(5, 30));
+            }
+
+            int totalPercentage = audienceResults.Sum();
+
+            if (totalPercentage > 100)
+            {
+                audienceResults[r.Next(0, 3)] -= totalPercentage - 100;
+            }
+            else if (totalPercentage < 100)
+            {
+                audienceResults[r.Next(0, 3)] += 100 - totalPercentage;
+            }
+            return audienceResults;
         }
 
         public AskAFriendModel CallAFriend(int questionIndex)
         {
-            var question = questions.ElementAt(questionIndex);
+            var question = Questions.ElementAt(questionIndex);
             var r = new Random();
-           if(r.Next(0, 10) > 1)
+            if (r.Next(0, 10) > 1)
             {
                 return new AskAFriendModel
                 {
@@ -44,30 +62,31 @@ namespace Milioner.Services
             }
             var incorrectAnswers = new List<int> { 0, 1, 2, 3 };
             incorrectAnswers.RemoveAt(question.correct);
-           return new AskAFriendModel
-           {
-               AnswerIndex = incorrectAnswers.ElementAt(r.Next(incorrectAnswers.Count)),
-               Confidence = r.Next(10, 60)
-           };
+            return new AskAFriendModel
+            {
+                AnswerIndex = incorrectAnswers.ElementAt(r.Next(incorrectAnswers.Count)),
+                Confidence = r.Next(10, 60)
+            };
         }
 
         public List<int> FiftyFifty(int questionIndex)
         {
-            var question = questions.ElementAt(questionIndex);
+            var question = Questions.ElementAt(questionIndex);
             var r = new Random();
             var incorrectAnswers = new List<int> { 0, 1, 2, 3 };
             incorrectAnswers.RemoveAt(question.correct);
 
-            var leftAnswers = new List<int>();
-            leftAnswers.Add(question.correct);
-            leftAnswers.Add(incorrectAnswers.ElementAt(r.Next(incorrectAnswers.Count)));
-            return leftAnswers;
+            return new List<int>
+            {
+                question.correct,
+                incorrectAnswers.ElementAt(r.Next(incorrectAnswers.Count))
+            };
 
         }
 
         public Question GetQuestion(int index)
         {
-            return questions.ElementAt(index);
+            return Questions.ElementAt(index);
         }
 
         public bool ValidateAnswer(int questionIndex, int answerIndex)

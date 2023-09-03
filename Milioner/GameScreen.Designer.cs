@@ -34,11 +34,11 @@
             this.btnAnswerC = new System.Windows.Forms.Button();
             this.btnAnswerD = new System.Windows.Forms.Button();
             this.lbScore = new System.Windows.Forms.CheckedListBox();
-            this.ExitButton = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.tbQuestion = new System.Windows.Forms.RichTextBox();
-            this.AskAudienceButton = new System.Windows.Forms.Button();
-            this.AskAFriendButton = new System.Windows.Forms.Button();
-            this.FiftyFiftyButton = new System.Windows.Forms.Button();
+            this.btnAskAudience = new System.Windows.Forms.Button();
+            this.btnAskAFriend = new System.Windows.Forms.Button();
+            this.btnFiftyFifty = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAnswerA
@@ -48,10 +48,10 @@
             this.btnAnswerA.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAnswerA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnswerA.ForeColor = System.Drawing.Color.White;
-            this.btnAnswerA.Location = new System.Drawing.Point(130, 487);
-            this.btnAnswerA.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnswerA.Location = new System.Drawing.Point(173, 599);
+            this.btnAnswerA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnswerA.Name = "btnAnswerA";
-            this.btnAnswerA.Size = new System.Drawing.Size(344, 28);
+            this.btnAnswerA.Size = new System.Drawing.Size(459, 34);
             this.btnAnswerA.TabIndex = 1;
             this.btnAnswerA.Text = "button1";
             this.btnAnswerA.UseVisualStyleBackColor = false;
@@ -65,10 +65,10 @@
             this.btnAnswerB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAnswerB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnswerB.ForeColor = System.Drawing.Color.White;
-            this.btnAnswerB.Location = new System.Drawing.Point(546, 484);
-            this.btnAnswerB.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnswerB.Location = new System.Drawing.Point(728, 596);
+            this.btnAnswerB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnswerB.Name = "btnAnswerB";
-            this.btnAnswerB.Size = new System.Drawing.Size(344, 34);
+            this.btnAnswerB.Size = new System.Drawing.Size(459, 42);
             this.btnAnswerB.TabIndex = 2;
             this.btnAnswerB.Text = "button2";
             this.btnAnswerB.UseVisualStyleBackColor = false;
@@ -81,10 +81,10 @@
             this.btnAnswerC.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAnswerC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnswerC.ForeColor = System.Drawing.Color.White;
-            this.btnAnswerC.Location = new System.Drawing.Point(130, 526);
-            this.btnAnswerC.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnswerC.Location = new System.Drawing.Point(173, 647);
+            this.btnAnswerC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnswerC.Name = "btnAnswerC";
-            this.btnAnswerC.Size = new System.Drawing.Size(344, 34);
+            this.btnAnswerC.Size = new System.Drawing.Size(459, 42);
             this.btnAnswerC.TabIndex = 3;
             this.btnAnswerC.Text = "button3";
             this.btnAnswerC.UseVisualStyleBackColor = false;
@@ -97,10 +97,10 @@
             this.btnAnswerD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAnswerD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnswerD.ForeColor = System.Drawing.Color.White;
-            this.btnAnswerD.Location = new System.Drawing.Point(546, 526);
-            this.btnAnswerD.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnswerD.Location = new System.Drawing.Point(728, 647);
+            this.btnAnswerD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnswerD.Name = "btnAnswerD";
-            this.btnAnswerD.Size = new System.Drawing.Size(344, 34);
+            this.btnAnswerD.Size = new System.Drawing.Size(459, 42);
             this.btnAnswerD.TabIndex = 4;
             this.btnAnswerD.Text = "button4";
             this.btnAnswerD.UseVisualStyleBackColor = false;
@@ -114,25 +114,26 @@
             this.lbScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbScore.ForeColor = System.Drawing.Color.White;
             this.lbScore.FormattingEnabled = true;
-            this.lbScore.Location = new System.Drawing.Point(335, 29);
-            this.lbScore.Margin = new System.Windows.Forms.Padding(2);
+            this.lbScore.Location = new System.Drawing.Point(447, 36);
+            this.lbScore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbScore.Name = "lbScore";
-            this.lbScore.Size = new System.Drawing.Size(372, 336);
+            this.lbScore.Size = new System.Drawing.Size(496, 400);
             this.lbScore.TabIndex = 5;
             // 
-            // ExitButton
+            // btnExit
             // 
-            this.ExitButton.BackColor = System.Drawing.Color.Transparent;
-            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitButton.ForeColor = System.Drawing.Color.White;
-            this.ExitButton.Location = new System.Drawing.Point(226, 310);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(90, 43);
-            this.ExitButton.TabIndex = 6;
-            this.ExitButton.Text = "Exit To Menu";
-            this.ExitButton.UseVisualStyleBackColor = false;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(301, 382);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(120, 53);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "Exit To Menu";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // tbQuestion
             // 
@@ -140,75 +141,82 @@
             this.tbQuestion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbQuestion.ForeColor = System.Drawing.Color.White;
-            this.tbQuestion.Location = new System.Drawing.Point(110, 400);
+            this.tbQuestion.Location = new System.Drawing.Point(147, 492);
+            this.tbQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.tbQuestion.Name = "tbQuestion";
             this.tbQuestion.ReadOnly = true;
-            this.tbQuestion.Size = new System.Drawing.Size(780, 69);
+            this.tbQuestion.Size = new System.Drawing.Size(1040, 85);
             this.tbQuestion.TabIndex = 7;
             this.tbQuestion.Text = "";
             // 
-            // AskAudienceButton
+            // btnAskAudience
             // 
-            this.AskAudienceButton.BackColor = System.Drawing.Color.Transparent;
-            this.AskAudienceButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.AskAudienceButton.FlatAppearance.BorderSize = 4;
-            this.AskAudienceButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AskAudienceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AskAudienceButton.ForeColor = System.Drawing.Color.Transparent;
-            this.AskAudienceButton.Location = new System.Drawing.Point(222, 48);
-            this.AskAudienceButton.Name = "AskAudienceButton";
-            this.AskAudienceButton.Size = new System.Drawing.Size(94, 46);
-            this.AskAudienceButton.TabIndex = 8;
-            this.AskAudienceButton.Text = "AskAudienceButton";
-            this.AskAudienceButton.UseVisualStyleBackColor = false;
+            this.btnAskAudience.BackColor = System.Drawing.Color.Transparent;
+            this.btnAskAudience.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAskAudience.FlatAppearance.BorderSize = 4;
+            this.btnAskAudience.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAskAudience.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAskAudience.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAskAudience.Location = new System.Drawing.Point(296, 59);
+            this.btnAskAudience.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAskAudience.Name = "btnAskAudience";
+            this.btnAskAudience.Size = new System.Drawing.Size(125, 57);
+            this.btnAskAudience.TabIndex = 8;
+            this.btnAskAudience.Text = "Ask The Audience";
+            this.btnAskAudience.UseVisualStyleBackColor = false;
+            this.btnAskAudience.Click += new System.EventHandler(this.AskAudienceButton_Click);
             // 
-            // AskAFriendButton
+            // btnAskAFriend
             // 
-            this.AskAFriendButton.BackColor = System.Drawing.Color.Transparent;
-            this.AskAFriendButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.AskAFriendButton.FlatAppearance.BorderSize = 4;
-            this.AskAFriendButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AskAFriendButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AskAFriendButton.ForeColor = System.Drawing.Color.White;
-            this.AskAFriendButton.Location = new System.Drawing.Point(222, 117);
-            this.AskAFriendButton.Name = "AskAFriendButton";
-            this.AskAFriendButton.Size = new System.Drawing.Size(94, 45);
-            this.AskAFriendButton.TabIndex = 9;
-            this.AskAFriendButton.Text = "AskAFriendButton";
-            this.AskAFriendButton.UseVisualStyleBackColor = false;
+            this.btnAskAFriend.BackColor = System.Drawing.Color.Transparent;
+            this.btnAskAFriend.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAskAFriend.FlatAppearance.BorderSize = 4;
+            this.btnAskAFriend.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAskAFriend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAskAFriend.ForeColor = System.Drawing.Color.White;
+            this.btnAskAFriend.Location = new System.Drawing.Point(296, 144);
+            this.btnAskAFriend.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAskAFriend.Name = "btnAskAFriend";
+            this.btnAskAFriend.Size = new System.Drawing.Size(125, 55);
+            this.btnAskAFriend.TabIndex = 9;
+            this.btnAskAFriend.Text = "Ask A Friend";
+            this.btnAskAFriend.UseVisualStyleBackColor = false;
+            this.btnAskAFriend.Click += new System.EventHandler(this.AskAFriendButton_Click);
             // 
-            // FiftyFiftyButton
+            // btnFiftyFifty
             // 
-            this.FiftyFiftyButton.BackColor = System.Drawing.Color.Transparent;
-            this.FiftyFiftyButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.FiftyFiftyButton.FlatAppearance.BorderSize = 4;
-            this.FiftyFiftyButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.FiftyFiftyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FiftyFiftyButton.ForeColor = System.Drawing.Color.White;
-            this.FiftyFiftyButton.Location = new System.Drawing.Point(222, 191);
-            this.FiftyFiftyButton.Name = "FiftyFiftyButton";
-            this.FiftyFiftyButton.Size = new System.Drawing.Size(94, 41);
-            this.FiftyFiftyButton.TabIndex = 10;
-            this.FiftyFiftyButton.Text = "FiftyFiftyButton";
-            this.FiftyFiftyButton.UseVisualStyleBackColor = false;
+            this.btnFiftyFifty.BackColor = System.Drawing.Color.Transparent;
+            this.btnFiftyFifty.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnFiftyFifty.FlatAppearance.BorderSize = 4;
+            this.btnFiftyFifty.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFiftyFifty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiftyFifty.ForeColor = System.Drawing.Color.White;
+            this.btnFiftyFifty.Location = new System.Drawing.Point(296, 235);
+            this.btnFiftyFifty.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFiftyFifty.Name = "btnFiftyFifty";
+            this.btnFiftyFifty.Size = new System.Drawing.Size(125, 50);
+            this.btnFiftyFifty.TabIndex = 10;
+            this.btnFiftyFifty.Text = "Fifty-Fifty";
+            this.btnFiftyFifty.UseVisualStyleBackColor = false;
+            this.btnFiftyFifty.Click += new System.EventHandler(this.FiftyFiftyButton_Click);
             // 
             // GameScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(972, 576);
-            this.Controls.Add(this.FiftyFiftyButton);
-            this.Controls.Add(this.AskAFriendButton);
-            this.Controls.Add(this.AskAudienceButton);
+            this.ClientSize = new System.Drawing.Size(1296, 709);
+            this.Controls.Add(this.btnFiftyFifty);
+            this.Controls.Add(this.btnAskAFriend);
+            this.Controls.Add(this.btnAskAudience);
             this.Controls.Add(this.tbQuestion);
-            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lbScore);
             this.Controls.Add(this.btnAnswerD);
             this.Controls.Add(this.btnAnswerC);
             this.Controls.Add(this.btnAnswerB);
             this.Controls.Add(this.btnAnswerA);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GameScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -222,11 +230,11 @@
         private System.Windows.Forms.Button btnAnswerC;
         private System.Windows.Forms.Button btnAnswerD;
         private System.Windows.Forms.CheckedListBox lbScore;
-        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.RichTextBox tbQuestion;
-        private System.Windows.Forms.Button AskAudienceButton;
-        private System.Windows.Forms.Button AskAFriendButton;
-        private System.Windows.Forms.Button FiftyFiftyButton;
+        private System.Windows.Forms.Button btnAskAudience;
+        private System.Windows.Forms.Button btnAskAFriend;
+        private System.Windows.Forms.Button btnFiftyFifty;
     }
 }
 
