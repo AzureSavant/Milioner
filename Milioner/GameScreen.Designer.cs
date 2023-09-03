@@ -48,10 +48,10 @@
             this.btnAnswerA.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAnswerA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnswerA.ForeColor = System.Drawing.Color.White;
-            this.btnAnswerA.Location = new System.Drawing.Point(173, 599);
-            this.btnAnswerA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAnswerA.Location = new System.Drawing.Point(130, 487);
+            this.btnAnswerA.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnswerA.Name = "btnAnswerA";
-            this.btnAnswerA.Size = new System.Drawing.Size(459, 34);
+            this.btnAnswerA.Size = new System.Drawing.Size(344, 28);
             this.btnAnswerA.TabIndex = 1;
             this.btnAnswerA.Text = "button1";
             this.btnAnswerA.UseVisualStyleBackColor = false;
@@ -65,10 +65,10 @@
             this.btnAnswerB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAnswerB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnswerB.ForeColor = System.Drawing.Color.White;
-            this.btnAnswerB.Location = new System.Drawing.Point(728, 596);
-            this.btnAnswerB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAnswerB.Location = new System.Drawing.Point(546, 484);
+            this.btnAnswerB.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnswerB.Name = "btnAnswerB";
-            this.btnAnswerB.Size = new System.Drawing.Size(459, 42);
+            this.btnAnswerB.Size = new System.Drawing.Size(344, 34);
             this.btnAnswerB.TabIndex = 2;
             this.btnAnswerB.Text = "button2";
             this.btnAnswerB.UseVisualStyleBackColor = false;
@@ -81,10 +81,10 @@
             this.btnAnswerC.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAnswerC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnswerC.ForeColor = System.Drawing.Color.White;
-            this.btnAnswerC.Location = new System.Drawing.Point(173, 647);
-            this.btnAnswerC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAnswerC.Location = new System.Drawing.Point(130, 526);
+            this.btnAnswerC.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnswerC.Name = "btnAnswerC";
-            this.btnAnswerC.Size = new System.Drawing.Size(459, 42);
+            this.btnAnswerC.Size = new System.Drawing.Size(344, 34);
             this.btnAnswerC.TabIndex = 3;
             this.btnAnswerC.Text = "button3";
             this.btnAnswerC.UseVisualStyleBackColor = false;
@@ -97,10 +97,10 @@
             this.btnAnswerD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAnswerD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnswerD.ForeColor = System.Drawing.Color.White;
-            this.btnAnswerD.Location = new System.Drawing.Point(728, 647);
-            this.btnAnswerD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAnswerD.Location = new System.Drawing.Point(546, 526);
+            this.btnAnswerD.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnswerD.Name = "btnAnswerD";
-            this.btnAnswerD.Size = new System.Drawing.Size(459, 42);
+            this.btnAnswerD.Size = new System.Drawing.Size(344, 34);
             this.btnAnswerD.TabIndex = 4;
             this.btnAnswerD.Text = "button4";
             this.btnAnswerD.UseVisualStyleBackColor = false;
@@ -114,10 +114,10 @@
             this.lbScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbScore.ForeColor = System.Drawing.Color.White;
             this.lbScore.FormattingEnabled = true;
-            this.lbScore.Location = new System.Drawing.Point(447, 36);
-            this.lbScore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbScore.Location = new System.Drawing.Point(335, 33);
+            this.lbScore.Margin = new System.Windows.Forms.Padding(2);
             this.lbScore.Name = "lbScore";
-            this.lbScore.Size = new System.Drawing.Size(496, 400);
+            this.lbScore.Size = new System.Drawing.Size(372, 336);
             this.lbScore.TabIndex = 5;
             // 
             // btnExit
@@ -126,10 +126,9 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(301, 382);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExit.Location = new System.Drawing.Point(226, 310);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(120, 53);
+            this.btnExit.Size = new System.Drawing.Size(90, 43);
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Exit To Menu";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -141,11 +140,10 @@
             this.tbQuestion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbQuestion.ForeColor = System.Drawing.Color.White;
-            this.tbQuestion.Location = new System.Drawing.Point(147, 492);
-            this.tbQuestion.Margin = new System.Windows.Forms.Padding(4);
+            this.tbQuestion.Location = new System.Drawing.Point(110, 400);
             this.tbQuestion.Name = "tbQuestion";
             this.tbQuestion.ReadOnly = true;
-            this.tbQuestion.Size = new System.Drawing.Size(1040, 85);
+            this.tbQuestion.Size = new System.Drawing.Size(780, 69);
             this.tbQuestion.TabIndex = 7;
             this.tbQuestion.Text = "";
             // 
@@ -157,10 +155,9 @@
             this.btnAskAudience.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAskAudience.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAskAudience.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAskAudience.Location = new System.Drawing.Point(296, 59);
-            this.btnAskAudience.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAskAudience.Location = new System.Drawing.Point(222, 48);
             this.btnAskAudience.Name = "btnAskAudience";
-            this.btnAskAudience.Size = new System.Drawing.Size(125, 57);
+            this.btnAskAudience.Size = new System.Drawing.Size(94, 46);
             this.btnAskAudience.TabIndex = 8;
             this.btnAskAudience.Text = "Ask The Audience";
             this.btnAskAudience.UseVisualStyleBackColor = false;
@@ -174,10 +171,9 @@
             this.btnAskAFriend.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAskAFriend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAskAFriend.ForeColor = System.Drawing.Color.White;
-            this.btnAskAFriend.Location = new System.Drawing.Point(296, 144);
-            this.btnAskAFriend.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAskAFriend.Location = new System.Drawing.Point(222, 117);
             this.btnAskAFriend.Name = "btnAskAFriend";
-            this.btnAskAFriend.Size = new System.Drawing.Size(125, 55);
+            this.btnAskAFriend.Size = new System.Drawing.Size(94, 45);
             this.btnAskAFriend.TabIndex = 9;
             this.btnAskAFriend.Text = "Ask A Friend";
             this.btnAskAFriend.UseVisualStyleBackColor = false;
@@ -191,10 +187,9 @@
             this.btnFiftyFifty.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFiftyFifty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiftyFifty.ForeColor = System.Drawing.Color.White;
-            this.btnFiftyFifty.Location = new System.Drawing.Point(296, 235);
-            this.btnFiftyFifty.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFiftyFifty.Location = new System.Drawing.Point(222, 191);
             this.btnFiftyFifty.Name = "btnFiftyFifty";
-            this.btnFiftyFifty.Size = new System.Drawing.Size(125, 50);
+            this.btnFiftyFifty.Size = new System.Drawing.Size(94, 41);
             this.btnFiftyFifty.TabIndex = 10;
             this.btnFiftyFifty.Text = "Fifty-Fifty";
             this.btnFiftyFifty.UseVisualStyleBackColor = false;
@@ -202,10 +197,10 @@
             // 
             // GameScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1296, 709);
+            this.ClientSize = new System.Drawing.Size(972, 576);
             this.Controls.Add(this.btnFiftyFifty);
             this.Controls.Add(this.btnAskAFriend);
             this.Controls.Add(this.btnAskAudience);
@@ -216,10 +211,10 @@
             this.Controls.Add(this.btnAnswerC);
             this.Controls.Add(this.btnAnswerB);
             this.Controls.Add(this.btnAnswerA);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GameScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Milioner";
             this.ResumeLayout(false);
 
         }

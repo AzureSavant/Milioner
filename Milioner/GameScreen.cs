@@ -121,6 +121,13 @@ namespace Milioner
         private void AskAudienceButton_Click(object sender, EventArgs e)
         {
             quizService.AskAudience(gameState.QuestionIndex);
+            Form chartForm = new ChartForm(quizService.AskAudience(gameState.QuestionIndex));
+            chartForm.Location = this.Location;
+            chartForm.StartPosition = FormStartPosition.Manual;
+            chartForm.FormClosed += delegate { this.Show(); };
+            chartForm.Show();
+            btnAskAudience.Enabled = false;
+            gameState.AskTheAudienceAvailable = false;
         }
 
         private void AskAFriendButton_Click(object sender, EventArgs e)
