@@ -9,12 +9,9 @@ using System.Threading.Tasks;
 
 namespace Milioner.Utils
 {
-    class Helper
+    static class Helper
     {
-        public Helper()
-        {
-        }
-        public GameState LoadGameStateFromFile()
+        public static GameState LoadGameStateFromFile()
         {
             GameState gameState = new GameState();
             using (StreamReader r = new StreamReader("../../gameState.json"))
@@ -26,10 +23,10 @@ namespace Milioner.Utils
             return gameState;
         }
 
-        public void SaveGameStateToFile(GameState gameState)
+        public static void SaveGameStateToFile(GameState gameState)
         {
             var data = JsonConvert.SerializeObject(gameState);
-            System.IO.File.WriteAllText("../../gameState.json",data);
+            File.WriteAllText("../../gameState.json",data);
         }
     }
 }
