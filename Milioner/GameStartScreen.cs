@@ -1,13 +1,6 @@
-﻿using Milioner.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Milioner.Utils.Util;
 
@@ -16,11 +9,11 @@ namespace Milioner
     public partial class GameStartScreen : Form
     {
         WMPLib.WindowsMediaPlayer wplayer;
-
+        List<Keys> keyBuffer = new List<Keys>();
         public GameStartScreen()
         {
             wplayer = new WMPLib.WindowsMediaPlayer();
-            Util.PlayAudioFile(wplayer, AudioFile.StartScreen);
+            PlayAudioFile(wplayer, AudioFile.StartScreen);
             wplayer.controls.play();
             InitializeComponent();
         }
@@ -43,6 +36,24 @@ namespace Milioner
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void GameStartScreen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == WASDKonamiCode.ElementAt(keyBuffer.Count))
+            {
+                keyBuffer.Add(e.KeyCode);
+            }
+            else
+            {
+                keyBuffer = new List<Keys>();
+            }
+            if(Enumerable.SequenceEqual(keyBuffer, WASDKonamiCode))
+            {
+                PlayAudioFile(wplayer, AudioFile.StartScreenVariant);
+                keyBuffer = new List<Keys>();
+
+            }
         }
     }
 }

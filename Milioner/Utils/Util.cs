@@ -4,11 +4,15 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Milioner.Utils
 {
     internal static class Util
     {
+        public static List<Keys> WASDKonamiCode = new List<Keys> { Keys.W, Keys.W, Keys.S, Keys.S, Keys.A, Keys.D, Keys.A, Keys.D, Keys.B, Keys.A };
+        public static List<Keys> CheatCode = new List<Keys> { Keys.T, Keys.R, Keys.E, Keys.N, Keys.D, Keys.O, Keys.M, Keys.E, Keys.P, Keys.R, Keys.A, Keys.T, Keys.I };
+
         static public char GetAnswerLetter(int index)
         {
             switch (index)
@@ -37,6 +41,7 @@ namespace Milioner.Utils
             public static string CorrectAnswer = "CorrectAnswer.mp3";
             public static string WrongAnswer = "WrongAnswer.mp3";
             public static string StartScreen = "StartScreen.mp3";
+            public static string StartScreenVariant= "StartScreenEasterEgg.mp3";
             public static string PhoneAFriend = "PhoneAFriend.mp3";
         }
     }

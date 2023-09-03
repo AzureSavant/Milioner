@@ -43,7 +43,7 @@ namespace Milioner
             // 
             this.StartScreenBackground.Image = ((System.Drawing.Image)(resources.GetObject("StartScreenBackground.Image")));
             this.StartScreenBackground.Location = new System.Drawing.Point(0, 0);
-            this.StartScreenBackground.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StartScreenBackground.Margin = new System.Windows.Forms.Padding(4);
             this.StartScreenBackground.Name = "StartScreenBackground";
             this.StartScreenBackground.Size = new System.Drawing.Size(1080, 636);
             this.StartScreenBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -61,7 +61,7 @@ namespace Milioner
             this.PlayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayButton.ForeColor = System.Drawing.SystemColors.Control;
             this.PlayButton.Location = new System.Drawing.Point(171, 366);
-            this.PlayButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PlayButton.Margin = new System.Windows.Forms.Padding(4);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(739, 48);
             this.PlayButton.TabIndex = 1;
@@ -102,10 +102,12 @@ namespace Milioner
             this.Controls.Add(this.ExitGameButton);
             this.Controls.Add(this.PlayButton);
             this.Controls.Add(this.StartScreenBackground);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GameStartScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Milioner";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameStartScreen_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.StartScreenBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);

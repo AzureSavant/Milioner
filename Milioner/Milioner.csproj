@@ -115,6 +115,7 @@
     <Content Include="Resources\Audio\LetsPlay.mp3" />
     <Content Include="Resources\Audio\CorrectAnswer.mp3" />
     <Content Include="Resources\Audio\PhoneAFriend.mp3" />
+    <Content Include="Resources\Audio\StartScreenEasterEgg.mp3" />
     <Content Include="Resources\Audio\WrongAnswer.mp3" />
     <Content Include="Resources\Audio\StartScreen.mp3" />
     <Content Include="Resources\GameScreenQuestion.jpg" />
