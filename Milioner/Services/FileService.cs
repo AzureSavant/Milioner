@@ -1,15 +1,10 @@
 ﻿using Milioner.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Milioner.Utils
 {
-    static class Helper
+    static class FileService
     {
         public static GameState LoadGameStateFromFile()
         {

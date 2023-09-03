@@ -65,7 +65,7 @@ namespace Milioner
 
         private void btnLoadGame_Click(object sender, EventArgs e)
         {
-            var gameState = Helper.LoadGameStateFromFile();
+            var gameState = FileService.LoadGameStateFromFile();
             Form form1 = new GameScreen(wplayer, gameState);
             form1.Location = this.Location;
             form1.StartPosition = FormStartPosition.Manual;

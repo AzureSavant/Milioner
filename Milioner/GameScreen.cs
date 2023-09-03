@@ -140,7 +140,7 @@ namespace Milioner
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            Helper.SaveGameStateToFile(gameState);
+            FileService.SaveGameStateToFile(gameState);
             this.Close();
         }
 
